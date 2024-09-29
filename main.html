@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let nome = prompt("Inserisci il tuo nome:")
+        while(nome===null){
+            nome = prompt("Nome non inserito, reinserisci il tuo nome:")
+        }
+        alert("D'adesso inizieranno le domande, rispondi solo con una parola")
+        alert("Per andare avanti spingi ok, se spingerai annulla la risposta verra resettata")
+        let giuste = 0
+        let risposta = prompt("Quanti continenti ci sono sulla Terra?")
+        while(risposta===null){
+            alert("Risposta resettata, riinserisci la tua risposta")
+            risposta = prompt("Quanti continenti ci sono sulla Terra?")
+        }
+        if (risposta.toLowerCase() == "sette" || risposta == "7"){  
+            giuste= giuste +1
+        }
+        risposta = prompt("Qual è il pianeta più vicino al Sole?")
+        while(risposta===null){
+            alert("Risposta resettata, riinserisci la tua risposta")
+            risposta = prompt("Qual è il pianeta più vicino al Sole?")
+        }
+        if (risposta.toLowerCase() == "mercurio"){
+            giuste= giuste +1
+        }
+        risposta = prompt("Qual è la capitale dell'Italia?")
+        while(risposta===null){
+            alert("Risposta resettata, riinserisci la tua risposta")
+            risposta = prompt("Qual è la capitale dell'Italia?")
+        }
+        if (risposta.toLowerCase() == "roma"){
+            giuste= giuste +1
+        }
+        risposta = prompt("Qual è il liquido essenziale per la vita sulla Terra?")
+        while(risposta===null){
+            alert("Risposta resettata, riinserisci la tua risposta")
+            risposta = prompt("Qual è il liquido essenziale per la vita sulla Terra?")
+        }
+        if (risposta.toLowerCase() == "acqua"){
+            giuste= giuste +1
+        }
+        risposta = prompt("Qual è l'elemento chimico con simbolo H?")
+        while(risposta===null){
+            alert("Risposta resettata, riinserisci la tua risposta")
+            risposta = prompt("Qual è l'elemento chimico con simbolo H?")
+        }
+        if (risposta.toLowerCase() == "idrogeno"){
+            giuste= giuste +1
+        }
+        risultato= giuste*100/5
+        alert("Hai finito il test, calcolo del risultato...")
+        alert(nome+" hai totalizzato un punteggio del " + risultato + "%")
+    </script>
+</body>
+</html>
