@@ -21,7 +21,7 @@
             }
         }
 
-        function calcolopercentuale(punti){
+        function calcolopercentuale(punti, max){
             let percentuale =  (punti / 5) * 100
             return percentuale
         }
@@ -34,40 +34,42 @@
             }
             return  risposta
         }
-        
         let domanda= "Inserisci il tuo nome:"
         let nome = richiestautente(domanda)
         alert("D'adesso inizieranno le domande, rispondi solo con una parola")
         alert("Per andare avanti spingi ok, se spingerai annulla la risposta verra resettata")
-        
-        
         let punteggio = 0
-        domanda= "Quanti continenti ci sono sulla terra?"
-        let richiesta = richiestautente(domanda)
-        sanizato = sanitize(richiesta)
-        punteggio = punteggio + verifica(sanizato, "sette")
+        let giusta =" "
+        let ndomande = 5
+        for (let i = 0;  i<ndomande; i++){
+            switch (i){
+                case 0:
+                    domanda= "Quanti continenti ci sono sulla terra(a lettere)?"
+                    giusta = "sette"
+                    break;
+                case 1:
+                    domanda= "Qual' è il pianeta più vicino al sole?"
+                    giusta = "mercurio"
+                    break
+                case 2:
+                    domanda= "Qual'è la capitale dell' Italia?"
+                    giusta = "roma"
+                    break
+                case 3:
+                    domanda= "Qual'è il liquido essenziale per la vita?"
+                    giusta = "acqua"
+                    break
+                case 4:
+                    domanda = "Qual'è l'elemento liquido che ha come  simbolo l'H?"
+                    giusta = "idrogeno"
+                    break
+            }
+            let richiesta = richiestautente(domanda)
+            let sanizato = sanitize(richiesta)
+            punteggio = punteggio + verifica(sanizato, giusta)
+        }
 
-        domanda= "Qual' è il pianeta più vicino al sole?"
-        richiesta = richiestautente(domanda)
-        sanizato = sanitize(richiesta)
-        punteggio = punteggio + verifica(sanizato, "mercurio")
-
-        domanda= "Qual'è la capitale dell' Italia?"
-        richiesta = richiestautente(domanda)
-        sanizato = sanitize(richiesta)
-        punteggio = punteggio + verifica(sanizato, "roma")
-        
-        domanda= "Qual'è il liquido essenziale per la vita?"
-        richiesta = richiestautente(domanda)
-        sanizato = sanitize(richiesta)
-        punteggio = punteggio + verifica(sanizato, "acqua")
-        
-        domanda = "Qual'è l'elemento liquido che ha come  simbolo l'H?"
-        richiesta = richiestautente(domanda)
-        sanizato = sanitize(richiesta)
-        punteggio = punteggio + verifica(sanizato, "idrogeno")
-
-        risultato= calcolopercentuale(punteggio)
+        let risultato= calcolopercentuale(punteggio)
         alert("Hai finito il test, calcolo del risultato...")
         alert(nome+" hai totalizzato un punteggio del " + risultato + "%")
     </script>
