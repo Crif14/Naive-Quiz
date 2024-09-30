@@ -7,10 +7,12 @@
 </head>
 <body>
     <script type="text/javascript">
+
         function sanitize(aggiustare){
             let aggiustato = aggiustare.toLowerCase().trim()
             return aggiustato
         }
+
         function verifica(risposta, correzzione){
             if (risposta == correzzione){
                 return 1
@@ -18,57 +20,53 @@
                 return 0
             }
         }
+
         function calcolopercentuale(punti){
             let percentuale =  (punti / 5) * 100
             return percentuale
         }
-        let nome = prompt("Inserisci il tuo nome:")
-        while(nome===null){
-            nome = prompt("Nome non inserito, reinserisci il tuo nome:")
+
+        function richiestautente(){
+            let risposta = prompt( domanda )
+            while(risposta===null){
+                alert ("Risposta resettata")
+                risposta = prompt(domanda)
+            }
+            return  risposta
         }
+        
+        let domanda= "Inserisci il tuo nome:"
+        let nome = richiestautente(domanda)
         alert("D'adesso inizieranno le domande, rispondi solo con una parola")
         alert("Per andare avanti spingi ok, se spingerai annulla la risposta verra resettata")
         
+        
         let punteggio = 0
-        let risposta = prompt("Quanti continenti ci sono sulla Terra?")
-        while(risposta===null){
-            alert("Risposta resettata, riinserisci la tua risposta")
-            risposta = prompt("Quanti continenti ci sono sulla Terra?")
-        }
-        sanizato = sanitize(risposta)
+        domanda= "Quanti continenti ci sono sulla terra?"
+        let richiesta = richiestautente(domanda)
+        sanizato = sanitize(richiesta)
         punteggio = punteggio + verifica(sanizato, "sette")
 
-        risposta = prompt("Qual è il pianeta più vicino al Sole?")
-        while(risposta===null){
-            alert("Risposta resettata, riinserisci la tua risposta")
-            risposta = prompt("Qual è il pianeta più vicino al Sole?")
-        }
-        sanizato = sanitize(risposta)
+        domanda= "Qual' è il pianeta più vicino al sole?"
+        richiesta = richiestautente(domanda)
+        sanizato = sanitize(richiesta)
         punteggio = punteggio + verifica(sanizato, "mercurio")
 
-        risposta = prompt("Qual è la capitale dell'Italia?")
-        while(risposta===null){
-            alert("Risposta resettata, riinserisci la tua risposta")
-            risposta = prompt("Qual è la capitale dell'Italia?")
-        }
-        sanizato = sanitize(risposta)
+        domanda= "Qual'è la capitale dell' Italia?"
+        richiesta = richiestautente(domanda)
+        sanizato = sanitize(richiesta)
         punteggio = punteggio + verifica(sanizato, "roma")
         
-        risposta = prompt("Qual è il liquido essenziale per la vita sulla Terra?")
-        while(risposta===null){
-            alert("Risposta resettata, riinserisci la tua risposta")
-            risposta = prompt("Qual è il liquido essenziale per la vita sulla Terra?")
-        }
-        sanizato = sanitize(risposta)
+        domanda= "Qual'è il liquido essenziale per la vita?"
+        richiesta = richiestautente(domanda)
+        sanizato = sanitize(richiesta)
         punteggio = punteggio + verifica(sanizato, "acqua")
         
-        risposta = prompt("Qual è l'elemento chimico con simbolo H?")
-        while(risposta===null){
-            alert("Risposta resettata, riinserisci la tua risposta")
-            risposta = prompt("Qual è l'elemento chimico con simbolo H?")
-        }
-        sanizato = sanitize(risposta)
+        domanda = "Qual'è l'elemento liquido che ha come  simbolo l'H?"
+        richiesta = richiestautente(domanda)
+        sanizato = sanitize(richiesta)
         punteggio = punteggio + verifica(sanizato, "idrogeno")
+
         risultato= calcolopercentuale(punteggio)
         alert("Hai finito il test, calcolo del risultato...")
         alert(nome+" hai totalizzato un punteggio del " + risultato + "%")
